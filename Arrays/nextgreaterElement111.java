@@ -36,7 +36,6 @@ class nextgreaterElement111{
 		}
 
 		if(idx1 == -1) return -1;
-		System.out.println(idx1); 
 
 		int prev = list.get(idx1);
 		for(int i = idx1 + 1; i < list.size(); i++){

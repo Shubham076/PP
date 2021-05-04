@@ -22,7 +22,6 @@ public class wiggleSort {
                 } else {
                     swap(i, i + 1, arr);
                 }
-
             }
         }
     }
