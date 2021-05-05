@@ -1,3 +1,4 @@
+//geeks for geeks
 class minNumberofPlatform{
     //greedy approah
 	static int findPlatform(int arr[], int dep[], int n){
