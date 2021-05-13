@@ -1,28 +1,55 @@
-//leetcode 658
 import java.util.*;
-class findKClosest {
-	public static List<Integer> findClosestElements(int[] arr, int k, int x) {
+//time complexity logn + k +  klogk
+public class findKclosest2 {
+    public static List<Integer> findClosestElements(int[] arr, int k, int x) {
         List<Integer> ans = new ArrayList<>();
         int lo = 0;
         int hi = arr.length - 1;
-        while((hi - lo) >= k){
-        	if((x - arr[lo]) > (arr[hi] - x)){
-        		lo++;
-        	}
-        	else{
-        		hi--;
-        	}
+        int mid = 0;
+        while(lo <= hi){
+            mid = lo + (hi - lo) / 2;
+            if(arr[mid] == x){
+                break;
+            }
+            else if(arr[mid] > x){
+                hi = mid - 1;
+            }
+            else{
+                lo = mid + 1;
+            }
         }
 
-        for(int i = lo; i <= hi; i++){
-        	ans.add(arr[i]);
+        int l = mid - 1;
+        int r = mid;
+        while(l >= 0 && r < arr.length && k > 0){
+            if(Math.abs(arr[l] - x) <= Math.abs(arr[r] - x)){
+                ans.add(arr[l]);
+                l--;
+            }
+            else{
+                ans.add(arr[r]);
+                r++;
+            }
+            k--;
         }
 
+        while(k > 0 && l >= 0){
+            ans.add(arr[l]);
+            l--;
+            k--;
+        }
+        while(k > 0 && r < arr.length){
+            ans.add(arr[r]);
+            r++;
+            k--;
+        }
+
+        Collections.sort(ans);
         return ans;
     }
-	public static void main(String[] args) {
-		int[] arr = {1, 2, 3, 4, 5};
-		int k = 4, x = 3;
+    public static void main(String[] args){
+        int[] arr = {1, 2, 3, 4, 5};
+		int k = 4, x = -1;
 		System.out.println(findClosestElements(arr, k, x));
-	}
+    }
 }

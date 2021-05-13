@@ -1,3 +1,4 @@
+import java.util.*;
 //geeks for geeks
 class minNumberofPlatform{
     //greedy approah
@@ -8,7 +9,8 @@ class minNumberofPlatform{
         int j = 0;
         Arrays.sort(arr);
         Arrays.sort(dep);
-    //we are only interested in earliest arrival and departure in arrival time is less than departure we increse the cnt other decrese the cnts
+    //we are only interested in earliest arrival and departure
+     // if arrival time is less than departure we increse the cnt other decrese the cnts
         while(i < arr.length){
             if(arr[i] <= dep[j]){
                 rpf++;

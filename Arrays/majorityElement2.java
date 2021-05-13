@@ -1,5 +1,6 @@
 import java.util.*;
-class majorityElemnt2{
+//in this we make triplets
+class majorityElement2{
     public static List<Integer> majorityElement(int[] nums) {
         List<Integer> ans = new ArrayList<>();
         int val1 = nums[0] , val2 = nums[0];

@@ -31,7 +31,7 @@ class maximumSwap{
      	return Integer.parseInt(new String(arr));   
     }
 	public static void main(String[] args){
-		int n = 9783;
+		int n = 7236;
 		System.out.println(maximumSwap(n));
 	}
 }
